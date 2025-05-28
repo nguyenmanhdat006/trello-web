@@ -1,12 +1,27 @@
 import './App.css'
 import Button from '@mui/material/Button'
 import Typography from '@mui/material/Typography'
-import theme from './theme'
-function App() {
+import {useColorScheme} from '@mui/material/styles'
 
+function ModeToggle() {
+  const { mode, setMode } = useColorScheme()
+  return (
+    <Button
+      onClick={() => {
+        setMode(mode === 'light' ? 'dark' : 'light')
+      }}
+    >
+      {mode === 'light' ? 'Turn dark' : 'Turn light'}
+    </Button>
+  )
+}
+
+
+function App() {
   return (
     <>
-
+      <ModeToggle/>
+      <hr />
       <div>nguyendat</div>
 
       <Typography variant="body2" color="text.secondary">Test Typography</Typography>
